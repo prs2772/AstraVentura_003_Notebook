@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\AstraVenturaNotebook.Core\AstraVenturaNotebook.Core.csproj" />
+    <ProjectReference Include="..\AstraVenturaNotebook.Application\AstraVenturaNotebook.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="14.1.0" />
+    <PackageReference Include="MongoDB.Driver" Version="3.7.0" />
   </ItemGroup>
 
   <PropertyGroup>
