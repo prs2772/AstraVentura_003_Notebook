@@ -5,14 +5,14 @@ using MediatR;
 
 namespace AstraVenturaNotebook.Application.UseCases.Notes.Queries;
 
-public class SearchNotesInTopicQueryHandler
-    : IRequestHandler<SearchNotesInTopicQuery, IEnumerable<SearchResultDto>>
+public class GetNotesByTopicIdQueryHandler
+    : IRequestHandler<GetNotesByTopicIdQuery, IEnumerable<SearchResultDto>>
 {
     private readonly ITopicRepository _topicRepository;
     private readonly INoteRepository _noteRepository;
     private readonly ICurrentUserService _currentUserService;
 
-    public SearchNotesInTopicQueryHandler(
+    public GetNotesByTopicIdQueryHandler(
         ITopicRepository topicRepository,
         INoteRepository noteRepository,
         ICurrentUserService currentUserService
@@ -24,28 +24,23 @@ public class SearchNotesInTopicQueryHandler
     }
 
     public async Task<IEnumerable<SearchResultDto>> Handle(
-        SearchNotesInTopicQuery request,
+        GetNotesByTopicIdQuery request,
         CancellationToken cancellationToken
     )
     {
         var userId = _currentUserService.GetUserId();
 
-        // 1. Obtener el tema base para saber su Path ("Ruta Materializada")
+        // 1. Obtener el tema base para saber su Path
         var baseTopic = await _topicRepository.GetByIdAsync(request.TopicId);
         if (baseTopic == null || baseTopic.UserId != userId)
         {
             return Enumerable.Empty<SearchResultDto>();
         }
 
-        // 2. Delegar la búsqueda pesada al repositorio, pasándole el Path
-        // Por ejemplo, buscará en todo lo que empiece con "/topic_1/"
-        var notes = await _noteRepository.SearchInPathAsync(
-            userId,
-            baseTopic.Path,
-            request.SearchTerm
-        );
+        // 2. Traer todas las notas debajo de ese topic
+        var notes = await _noteRepository.GetByTopicPathAsync(userId, baseTopic.Path);
 
-        // 3. Mapear al DTO para el frontend
+        // 3. Mapear al DTO (reusamos SearchResultDto para mantener la compatibilidad del UI)
         return notes.Select(note => new SearchResultDto(
             NoteId: note.Id,
             Title: note.Title,

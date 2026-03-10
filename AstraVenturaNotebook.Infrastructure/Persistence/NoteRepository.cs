@@ -29,6 +29,11 @@ public class NoteRepository : INoteRepository
         await _context.Notes.ReplaceOneAsync(n => n.Id == note.Id, note);
     }
 
+    public async Task DeleteAsync(string id)
+    {
+        await _context.Notes.DeleteOneAsync(n => n.Id == id);
+    }
+
     public async Task<IEnumerable<Note>> SearchInPathAsync(
         string userId,
         string basePath,
@@ -53,6 +58,18 @@ public class NoteRepository : INoteRepository
 
         // Combinamos todo con AND
         var finalFilter = builder.And(userFilter, pathFilter, textFilter);
+
+        return await _context.Notes.Find(finalFilter).ToListAsync();
+    }
+
+    public async Task<IEnumerable<Note>> GetByTopicPathAsync(string userId, string basePath)
+    {
+        var builder = Builders<Note>.Filter;
+
+        var userFilter = builder.Eq(n => n.UserId, userId);
+        var pathFilter = builder.Regex(n => n.TopicPath, new BsonRegularExpression($"^{basePath}"));
+
+        var finalFilter = builder.And(userFilter, pathFilter);
 
         return await _context.Notes.Find(finalFilter).ToListAsync();
     }

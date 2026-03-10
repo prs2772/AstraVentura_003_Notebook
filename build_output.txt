@@ -1,0 +1,16 @@
+  Determinando los proyectos que se van a restaurar...
+  Todos los proyectos están actualizados para la restauración.
+  AstraVenturaNotebook.Core -> C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Core\bin\Debug\net8.0\AstraVenturaNotebook.Core.dll
+C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\UseCases\Notes\Commands\UpdateNoteCommandHandler.cs(34,9): error CS0200: No se puede asignar a la propiedad o el indizador 'Note.Title' porque es de solo lectura [C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\AstraVenturaNotebook.Application.csproj]
+C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\UseCases\Notes\Commands\UpdateNoteCommandHandler.cs(35,9): error CS0200: No se puede asignar a la propiedad o el indizador 'Note.Content' porque es de solo lectura [C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\AstraVenturaNotebook.Application.csproj]
+C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\UseCases\Notes\Commands\UpdateNoteCommandHandler.cs(36,9): error CS0200: No se puede asignar a la propiedad o el indizador 'Note.UpdatedAt' porque es de solo lectura [C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\AstraVenturaNotebook.Application.csproj]
+
+ERROR al compilar.
+
+C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\UseCases\Notes\Commands\UpdateNoteCommandHandler.cs(34,9): error CS0200: No se puede asignar a la propiedad o el indizador 'Note.Title' porque es de solo lectura [C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\AstraVenturaNotebook.Application.csproj]
+C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\UseCases\Notes\Commands\UpdateNoteCommandHandler.cs(35,9): error CS0200: No se puede asignar a la propiedad o el indizador 'Note.Content' porque es de solo lectura [C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\AstraVenturaNotebook.Application.csproj]
+C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\UseCases\Notes\Commands\UpdateNoteCommandHandler.cs(36,9): error CS0200: No se puede asignar a la propiedad o el indizador 'Note.UpdatedAt' porque es de solo lectura [C:\Users\prami\Desktop\AIO\Employ\Projects\AstaVenturaEcosystem\AstraVenturaNotebook\AstraVenturaNotebook.Application\AstraVenturaNotebook.Application.csproj]
+    0 Advertencia(s)
+    3 Errores
+
+Tiempo transcurrido 00:00:00.89
